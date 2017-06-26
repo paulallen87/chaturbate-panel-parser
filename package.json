@@ -1,0 +1,35 @@
+{
+  "name": "@paulallen87/chaturbate-panel-parser",
+  "version": "1.0.0",
+  "description": "A parser for Chaturbate panel info.",
+  "main": "index.js",
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "scripts": {
+    "test": "node_modules/.bin/mocha --reporter spec",
+    "cover": "node_modules/istanbul/lib/cli.js cover node_modules/mocha/bin/_mocha -- -R spec test/*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paulallen87/chaturbate-panel-parser.git"
+  },
+  "keywords": [
+    "chaturbate"
+  ],
+  "author": "“Paul Allen <“paul.allen.87.555@gmail.com”>",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/paulallen87/chaturbate-panel-parser/issues"
+  },
+  "homepage": "https://github.com/paulallen87/chaturbate-panel-parser#readme",
+  "devDependencies": {
+    "chai": "^4.0.2",
+    "coveralls": "^2.13.1",
+    "istanbul": "next",
+    "mocha": "^3.4.2"
+  },
+  "dependencies": {
+    "debug": "^2.6.8"
+  }
+}
