@@ -18,7 +18,7 @@ class Builder {
   }
 
   setHasGoal(val) {
-    this._hasGoal = val;
+    this._hasGoal = !!val;
     return this;
   }
 
@@ -27,7 +27,7 @@ class Builder {
   }
 
   setHasMultipleGoals(val) {
-    this._hasMultipleGoals = val;
+    this._hasMultipleGoals = !!val;
     return this;
   }
 
@@ -36,7 +36,7 @@ class Builder {
   }
 
   setGoalAmount(val) {
-    this._goalAmount = parseInt(val, 10);
+    this._goalAmount = parseInt(val || 0, 10);
     return this;
   }
 
@@ -52,7 +52,7 @@ class Builder {
   }
 
   setGoalCurrent(val) {
-    this._goalCurrent = parseInt(val, 10);
+    this._goalCurrent = parseInt(val || 0, 10);
     return this;
   }
 
@@ -65,7 +65,7 @@ class Builder {
   }
 
   setGoalRemaining(val) {
-    this._goalRemaining = parseInt(val, 10);
+    this._goalRemaining = parseInt(val || 0, 10);
     return this;
   }
 
@@ -81,7 +81,7 @@ class Builder {
   }
 
   setGoalCount(val) {
-    this._goalCount = parseInt(val, 10);
+    this._goalCount = parseInt(val || 0, 10);
     return this;
   }
 
@@ -98,7 +98,7 @@ class Builder {
   }
 
   setGoalTotal(val) {
-    this._goalTotal = parseInt(val, 10);
+    this._goalTotal = parseInt(val || 0, 10);
     return this;
   }
 
@@ -119,18 +119,18 @@ class Builder {
 
   setTipBiggest(username, amount) {
     this._tipBiggestUsername = username;
-    this._tipBiggestAmount = parseInt(amount, 10);
+    this._tipBiggestAmount = parseInt(amount || 0, 10);
     return this;
   }
 
   setTipRecent(username, amount) {
     this._tipRecentUsername = username;
-    this._tipRecentAmount = parseInt(amount, 10);
+    this._tipRecentAmount = parseInt(amount || 0, 10);
     return this;
   }
 
   setTipperCount(val) {
-    this._tipperCount = parseInt(val, 10);
+    this._tipperCount = parseInt(val || 0, 10);
     return this;
   }
 
