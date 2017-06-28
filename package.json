@@ -1,6 +1,6 @@
 {
   "name": "@paulallen87/chaturbate-panel-parser",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A parser for Chaturbate panel info.",
   "main": "index.js",
   "engines": {
@@ -30,6 +30,7 @@
     "mocha": "^3.4.2"
   },
   "dependencies": {
-    "debug": "^2.6.8"
+    "debug": "^2.6.8",
+    "memoizee": "^0.4.5"
   }
 }
