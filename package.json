@@ -1,6 +1,6 @@
 {
   "name": "@paulallen87/chaturbate-panel-parser",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A parser for Chaturbate panel info.",
   "main": "index.js",
   "engines": {

@@ -22,5 +22,18 @@ module.exports = (panelAppName, panel) => {
   if (transforms[panelAppName]) {
     debug(`transforming panel for '${panelAppName}'...`)
     return transforms[panelAppName].transform(panel);
+  } else {
+    let found = null
+
+    Object.keys(transforms).some((name) => {
+      debug(`trying transform panel for '${name}'...`)
+      found = transforms[panelAppName].transform(panel);
+      return !!found;
+    });
+
+    if (found) {
+      debug('manually found transform')
+      return found;
+    }
   }
 };
