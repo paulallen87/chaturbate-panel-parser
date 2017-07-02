@@ -1,3 +1,5 @@
+'use strict';
+
 const Builder = require('../builder');
 const matcher = require('../matcher');
 
@@ -6,21 +8,21 @@ const REGEX = [
   {
     label: /Tips \/ On Board/,
     value: /(\d+) \/ (\d+)/,
-    assert: 2
+    assert: 2,
   },
   {
     label: /MVP/,
     value: /(.*?) \((\d+)\)/,
-    assert: 2
-  }
-]
+    assert: 2,
+  },
+];
 
 module.exports = {
   name: 'Token Keno',
   transform: (panel) => {
     const matches = matcher(REGEX, panel);
 
-    if (!matches) return;
+    if (!matches) return null;
 
     return (new Builder())
         .setHasGoal(true)
@@ -29,5 +31,5 @@ module.exports = {
         .setGoalRemaining(matches[1][1])
         .setTipBiggest(matches[2][0], matches[2][1])
         .build();
-  }
-}
+  },
+};

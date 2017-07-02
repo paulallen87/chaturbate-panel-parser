@@ -1,3 +1,5 @@
+'use strict';
+
 const Builder = require('../builder');
 const matcher = require('../matcher');
 
@@ -5,37 +7,37 @@ const REGEX = [
   {
     label: null,
     value: /Goal #(\d+) : (\d+) \/ (\d+) \[ (\d+) Remaining \] \((\d+)\)/,
-    assert: 5
+    assert: 5,
   },
   {
     label: null,
     value: /Mvp - "(.*?)" - (\d+)/,
-    assert: 2
+    assert: 2,
   },
   {
     label: null,
     value: /Newest - "(.*?)" - (\d+)/,
-    assert: 2
-  }
-]
+    assert: 2,
+  },
+];
 
 const REGEX_NO_TOTAL = [
   {
     label: null,
     value: /Goal #(\d+) : (\d+) \/ (\d+) \[ (\d+) Remaining \]/,
-    assert: 4
+    assert: 4,
   },
   {
     label: null,
     value: /Mvp - "(.*?)" - (\d+)/,
-    assert: 2
+    assert: 2,
   },
   {
     label: null,
     value: /Newest - "(.*?)" - (\d+)/,
-    assert: 2
-  }
-]
+    assert: 2,
+  },
+];
 
 module.exports = {
   name: 'Lovense Lush',
@@ -70,5 +72,7 @@ module.exports = {
           .setTipRecent(matches[2][0], matches[2][1])
           .build();
     }
-  }
-}
+
+    return null;
+  },
+};

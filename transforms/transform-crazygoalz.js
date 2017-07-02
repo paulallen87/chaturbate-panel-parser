@@ -1,3 +1,5 @@
+'use strict';
+
 const Builder = require('../builder');
 const matcher = require('../matcher');
 
@@ -7,16 +9,16 @@ const REGEX = [
   {
     label: /Goals Reached: (\d+)/,
     value: /Current: (\d+) \/ (\d+)/,
-    assert: 3
-  }
-]
+    assert: 3,
+  },
+];
 
 module.exports = {
   name: 'CrazyGoalz',
   transform: (panel) => {
     const matches = matcher(REGEX, panel);
 
-    if (!matches) return;
+    if (!matches) return null;
 
     return (new Builder())
         .setHasGoal(true)
@@ -25,5 +27,5 @@ module.exports = {
         .setGoalCurrent(matches[2][1])
         .setGoalAmount(matches[2][2])
         .build();
-  }
-}
+  },
+};

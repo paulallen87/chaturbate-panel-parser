@@ -1,3 +1,5 @@
+'use strict';
+
 const Builder = require('../builder');
 const matcher = require('../matcher');
 
@@ -5,33 +7,33 @@ const REGEX_MULTI = [
   {
     label: null,
     value: /Goal #(\d+) : (\d+) \/ (\d+) \[ (\d+) Remaining \] \((\d+)\)/,
-    assert: 5
+    assert: 5,
   },
   undefined,
   {
     label: null,
     value: /Best.*?"(.*?)".*?(\d+)/,
-    assert: 2
-  }
-]
+    assert: 2,
+  },
+];
 
 const REGEX_SINGLE = [
   {
     label: null,
     value: /(\d+) .*? - (\d+) .*? Received/,
-    assert: 2
+    assert: 2,
   },
   {
     label: null,
     value: /Best.*?"(.*?)".*?(\d+)/,
-    assert: 2
+    assert: 2,
   },
   {
     label: null,
     value: /Last.*?"(.*?)".*?(\d+)/,
-    assert: 2
-  }
-]
+    assert: 2,
+  },
+];
 
 module.exports = {
   name: 'Lovense-Me',
@@ -55,7 +57,7 @@ module.exports = {
     matches = matcher(REGEX_SINGLE, panel);
     if (matches) {
       return (new Builder())
-          // probably 'true', but need to check the subject
+          // Probably 'true', but need to check the subject
           .setHasGoal(false)
           .setHasMultipleGoals(false)
           .setTipperCount(matches[0][0])
@@ -64,5 +66,7 @@ module.exports = {
           .setTipRecent(matches[2][0], matches[2][1])
           .build();
     }
-  }
-}
+
+    return null;
+  },
+};

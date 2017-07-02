@@ -1,3 +1,5 @@
+'use strict';
+
 const Builder = require('../builder');
 const matcher = require('../matcher');
 
@@ -5,21 +7,21 @@ const REGEX = [
   {
     label: /Received \/ Goal \(Total\)/,
     value: /(\d+) \/ (\d+) \((\d+)\)/,
-    assert: 3
+    assert: 3,
   },
   {
     label: /Hit Goal For/,
     value: /(\d+) times/,
-    assert: 1
-  }
-]
+    assert: 1,
+  },
+];
 
 module.exports = {
   name: 'Auto-Reset Tip Goal',
   transform: (panel) => {
     const matches = matcher(REGEX, panel);
 
-    if (!matches) return;
+    if (!matches) return null;
 
     return (new Builder())
         .setHasGoal(true)
@@ -29,5 +31,5 @@ module.exports = {
         .setGoalAmount(matches[0][1])
         .setGoalTotal(matches[0][2])
         .build();
-  }
-}
+  },
+};

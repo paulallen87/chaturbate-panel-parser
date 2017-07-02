@@ -1,3 +1,5 @@
+'use strict';
+
 const Builder = require('../builder');
 const matcher = require('../matcher');
 
@@ -5,14 +7,14 @@ const REGEX_MULTI = [
   {
     label: /Received \/ Goal \(Total Tokens\)/,
     value: /(\d+) \/ (\d+) \((\d+)\)/,
-    assert: 3
+    assert: 3,
   },
-  { 
-    label: /Hit Goal For/, 
+  {
+    label: /Hit Goal For/,
     value: /(\d+) times/,
-    assert: 1
-  }
-]
+    assert: 1,
+  },
+];
 
 module.exports = {
   name: 'Reset Goals',
@@ -30,5 +32,7 @@ module.exports = {
           .setGoalCount(matches[1][0])
           .build();
     }
-  }
-}
+
+    return null;
+  },
+};

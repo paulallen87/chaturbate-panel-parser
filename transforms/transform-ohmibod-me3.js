@@ -1,3 +1,5 @@
+'use strict';
+
 const Builder = require('../builder');
 const matcher = require('../matcher');
 
@@ -5,15 +7,15 @@ const REGEX_MULTI = [
   {
     label: null,
     value: /Goal #(\d+) : (\d+) \/ (\d+) \[ (\d+) Remaining \]/,
-    assert: 4
+    assert: 4,
   },
   undefined,
   {
     label: null,
     value: /Best.*?"(.*?)".*?(\d+)/,
-    assert: 2
-  }
-]
+    assert: 2,
+  },
+];
 
 module.exports = {
   name: 'Ohmibod-Me3',
@@ -32,5 +34,7 @@ module.exports = {
           .setTipBiggest(matches[2][0], matches[2][1])
           .build();
     }
-  }
-}
+
+    return null;
+  },
+};

@@ -1,3 +1,5 @@
+'use strict';
+
 const Builder = require('../builder');
 const matcher = require('../matcher');
 
@@ -5,37 +7,37 @@ const REGEX_MULTI = [
   {
     label: /Received \/ Goal \(Total\)/,
     value: /(\d+) \/ (\d+) \((\d+)\)/,
-    assert: 3
+    assert: 3,
   },
   {
     label: /Highest Tip/,
     value: /(.*?) \((\d+)\)/,
-    assert: 2
+    assert: 2,
   },
   {
     label: /Latest Tip Received/,
     value: /(.*?) \((\d+)\)/,
-    assert: 2
-  }
-]
+    assert: 2,
+  },
+];
 
 const REGEX_SINGLE = [
   {
     label: /Received \/ Goal/,
     value: /(\d+) \/ (\d+)/,
-    assert: 2
+    assert: 2,
   },
   {
     label: /Highest Tip/,
     value: /(.*?) \((\d+)\)/,
-    assert: 2
+    assert: 2,
   },
   {
     label: /Latest Tip Received/,
     value: /(.*?) \((\d+)\)/,
-    assert: 2
-  }
-]
+    assert: 2,
+  },
+];
 
 module.exports = {
   name: 'Tip Multi-Goal',
@@ -66,5 +68,7 @@ module.exports = {
           .setTipRecent(matches[2][0], matches[2][1])
           .build();
     }
-  }
-}
+
+    return null;
+  },
+};

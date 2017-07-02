@@ -1,3 +1,5 @@
+'use strict';
+
 const Builder = require('../builder');
 const matcher = require('../matcher');
 
@@ -5,29 +7,29 @@ const REGEX_MULTI = [
   {
     label: null,
     value: /Goals Reached: (\d+) ● Current: (\d+) \/ (\d+)/,
-    assert: 3
+    assert: 3,
   },
   undefined,
   {
     label: null,
     value: /Remaining for Goal #\d+: (\d+) ● Total: (\d+)/,
-    assert: 2
-  }
-]
+    assert: 2,
+  },
+];
 
 const REGEX_SINGLE = [
   {
     label: null,
     value: /Tips \/ Goal ● (\d+) \/ (\d+)/,
-    assert: 2
+    assert: 2,
   },
   undefined,
   {
     label: null,
     value: /Remaining for Goal: (\d+)/,
-    assert: 1
-  }
-]
+    assert: 1,
+  },
+];
 
 module.exports = {
   name: 'CrazyGoal',
@@ -57,5 +59,7 @@ module.exports = {
           .setGoalRemaining(matches[2][0])
           .build();
     }
-  }
-}
+
+    return null;
+  },
+};
