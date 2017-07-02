@@ -29,7 +29,7 @@ module.exports = (panelAppName, panel) => {
 
   Object.keys(transforms).some((name) => {
     debug(`trying transform panel for '${name}'...`);
-    found = transforms[panelAppName].transform(panel);
+    found = transforms[name].transform(panel);
     return Boolean(found);
   });
 
