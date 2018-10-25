@@ -6,7 +6,7 @@ const matcher = require('../matcher');
 const REGEX_MULTI = [
   {
     label: null,
-    value: /Goal #(\d+) : (\d+) \/ (\d+) \[ (\d+) Remaining \] \((\d+)\)/,
+    value: /Goal #(\d+) . (\d+) \/ (\d+) \[ (\d+) Remaining \] \((\d+)\)/,
     assert: 5,
   },
   undefined,
@@ -20,7 +20,7 @@ const REGEX_MULTI = [
 const REGEX_MULTI_NO_TOTAL = [
   {
     label: null,
-    value: /Goal #(\d+) : (\d+) \/ (\d+) \[ (\d+) Remaining \]/,
+    value: /Goal #(\d+) . (\d+) \/ (\d+) \[ (\d+) Remaining \]/,
     assert: 4,
   },
   undefined,
@@ -34,7 +34,7 @@ const REGEX_MULTI_NO_TOTAL = [
 const REGEX_SINGLE = [
   {
     label: null,
-    value: /(\d+) .*? - (\d+) .*? Received/,
+    value: /(\d+) .*? . (\d+) .*? Received/,
     assert: 2,
   },
   {
